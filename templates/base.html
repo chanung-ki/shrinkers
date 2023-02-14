@@ -5,10 +5,11 @@
         <title>Django TEST</title>
     </head>
     <body>
-        {{ welcome_msg }} // 
+        {{ user }} <br> 
          {% comment %} render함수에 있던 값이 넘어옴 {{key}} => value 출력 {% endcomment %}
-         
-         {{member}}
+         {% for i in params %}
+         {{i}} <br>
+         {% endfor %}
     </body>
 
 

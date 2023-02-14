@@ -19,7 +19,12 @@ class PayPlan(models.Model):
 # 1번 
 # 테이블 하나에 쌓임
 class Users(AbstractUser):
-    pay_plan = models.ForeignKey(PayPlan, on_delete=models.DO_NOTHING)
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+    join_date = models.DateTimeField(auto_now_add=True)
+    update_date = models.DateTimeField(auto_now=True)
+    # pay_plan = models.ForeignKey(PayPlan, on_delete=models.DO_NOTHING)
     
 
 # 2번
