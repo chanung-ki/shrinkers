@@ -30,6 +30,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+#AbstractUser 사용 위해 추가 설정 
+AUTH_USER_MODEL = "shortener.Users"
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
