@@ -24,8 +24,8 @@ class Users(AbstractUser):
 
 # 2번
 # 테이블 두개에 쌓임
-class UserDetail(models.Model):
-    user= models.OneToOneField(Users, on_delete=models.CASCADE)
-    pay_plan = models.ForeignKey(PayPlan, on_delete=models.DO_NOTHING)
+# class UserDetail(models.Model):
+#     user= models.OneToOneField(Users, on_delete=models.CASCADE)
+#     pay_plan = models.ForeignKey(PayPlan, on_delete=models.DO_NOTHING)
 
 # OneToOneField => 1대1 매핑이 되도록 하게 하겠다.
