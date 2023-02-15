@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     ### 추가 ###
-    'shortener.apps.ShortenerConfig'
+    'shortener.apps.ShortenerConfig',
+    'debug_toolbar', ###
     
 ]
 
@@ -53,6 +54,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ########################################################
+    'debug_toolbar.middleware.DebugToolbarMiddleware', ###
+]
+
+# 본인만 디버그 툴바 보겠다는 설정 
+INTERNAL_IPS= [
+    '127.0.0.1',
 ]
 
 ROOT_URLCONF = 'shrinkers.urls'

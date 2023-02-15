@@ -14,12 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from shortener.views import index, get_user
+import debug_toolbar  # 디버그 툴바 사용 위해 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('__debug__/', include(debug_toolbar.urls)), # debug_toolbar 사용 위해 
     ###
     path("", index, name="index_A"),
-    path("get_user/<int:user_id>", get_user)
+    path("get_user/<int:user_id>", get_user),
 ]

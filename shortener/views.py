@@ -6,12 +6,13 @@ from django.http import JsonResponse
 # Create your views here.
 
 def index(request):
+    print(request.user.pay_plan.name)
     user = Users.objects.filter(username='admin').first() # Django의 ORM
     email = user.email if user else '비회원이시군요 ! 회원가입을 해보세요 ㅎㅎ'
     print(email)
-    # print(request.user.is_authenticated) # user.is_authenticated => 로그인 여부 검즘
-    # if request.user.is_authenticated is False:
-    #     email = '비회원이시군요 ! 회원가입을 해보세요 ㅎㅎ'
+    print(request.user.is_authenticated) # user.is_authenticated => 로그인 여부 검즘
+    if request.user.is_authenticated is False:
+        email = '비회원이시군요 ! 회원가입을 해보세요 ㅎㅎ'
     return render(request, 'base.html', {'welcome_msg' : '안녕하세용ㅎㅎ', 'member' : f'{email}'})
 
 # def redirect_test(request):
@@ -30,5 +31,6 @@ def get_user(request, user_id):
         username = request.Get.get('username')
         if username:
             user = Users.objects.filter(pk=user_id).update(username=username)
-            return JsonResponse(dict(msg='You just reached with Post Method'))
-            
+            return JsonResponse(status=201, data=dict(msg='You just reached with Post Method'), safe=False)
+            #status=201, safe=False => 한국어 안깨지게 하기 위함 
+
