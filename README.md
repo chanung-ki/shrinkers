@@ -1,1 +1,1 @@
-# shrinkers
+### Django Framework Study Repository
